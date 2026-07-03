@@ -1,0 +1,24 @@
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-offwhite text-anthracite font-body;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-heading text-petrol;
+}
