@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { FadeIn } from "../common/FadeIn";
 import { SectionHeading } from "../common/SectionHeading";
+import { BlobBackground } from "../art/BlobBackground";
 import { serviceCategories } from "../../data/services";
 
 const openingHours = [
@@ -33,13 +34,15 @@ export function Contact() {
   }
 
   return (
-    <section id="kontakt" className="bg-petrol text-offwhite scroll-mt-24">
-      <div className="max-w-6xl mx-auto px-6 py-20">
+    <section id="kontakt" className="relative bg-petrol text-offwhite scroll-mt-24 overflow-hidden">
+      <BlobBackground variant="dark" />
+      <div className="relative max-w-6xl mx-auto px-6 py-20">
         <FadeIn>
           <SectionHeading
             eyebrow="Kontakt"
             title="Lass uns über deine Bewegung sprechen"
             subtitle="Ob Trainingsaufbau, Reha oder einfach mehr Beweglichkeit im Alltag – schreib uns oder ruf an, gemeinsam finden wir den passenden Weg."
+            light
           />
         </FadeIn>
 
@@ -209,7 +212,7 @@ export function Contact() {
 
                   <button
                     type="submit"
-                    className="rounded-full bg-lime text-petrol font-semibold px-6 py-3 hover:brightness-95 transition"
+                    className="rounded-full bg-lime text-petrol font-semibold px-6 py-3 hover:brightness-95 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
                   >
                     Anfrage senden
                   </button>

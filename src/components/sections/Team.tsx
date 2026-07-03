@@ -45,8 +45,11 @@ export function Team() {
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {team.map((member, i) => (
             <FadeIn key={member.name} delay={i * 75}>
-              <div className="rounded-2xl bg-offwhite shadow-card p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover h-full flex flex-col items-center">
-                <AvatarPlaceholder name={member.name} />
+              <div className="group relative rounded-2xl bg-offwhite shadow-card p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover h-full flex flex-col items-center overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-lime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                <div className="transition-transform duration-300 group-hover:scale-105">
+                  <AvatarPlaceholder name={member.name} />
+                </div>
                 <p className="mt-4 font-heading font-bold">{member.name}</p>
                 <p className="mt-1 text-sm text-anthracite/70">{member.role}</p>
                 <p className="mt-3 text-sm text-anthracite/60">{member.note}</p>

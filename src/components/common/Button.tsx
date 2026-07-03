@@ -4,9 +4,9 @@ type Variant = "primary" | "secondary";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "rounded-full bg-lime text-petrol font-semibold px-6 py-3 hover:brightness-95 transition inline-block text-center",
+    "rounded-full bg-lime text-petrol font-semibold px-6 py-3 hover:brightness-95 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block text-center",
   secondary:
-    "rounded-full border-2 border-petrol text-petrol font-semibold px-6 py-3 hover:bg-petrol hover:text-offwhite transition inline-block text-center",
+    "rounded-full border-2 border-petrol text-petrol font-semibold px-6 py-3 hover:bg-petrol hover:text-offwhite transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block text-center",
 };
 
 interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

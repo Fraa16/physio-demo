@@ -1,6 +1,8 @@
 import { FadeIn } from "../common/FadeIn";
 import { SectionHeading } from "../common/SectionHeading";
 import { AvatarPlaceholder } from "../common/AvatarPlaceholder";
+import { BlobBackground } from "../art/BlobBackground";
+import { MotionFigure } from "../art/MotionFigure";
 
 const founders = [
   {
@@ -17,8 +19,17 @@ const founders = [
 
 export function About() {
   return (
-    <section id="ueber-uns" className="bg-white scroll-mt-24">
-      <div className="max-w-6xl mx-auto px-6 py-20">
+    <section id="ueber-uns" className="relative bg-white scroll-mt-24 overflow-hidden">
+      <BlobBackground variant="light" />
+      <MotionFigure
+        pose="reach"
+        animated={false}
+        lineColor="rgba(11,61,66,0.06)"
+        jointColor="rgba(11,61,66,0.08)"
+        className="hidden lg:block absolute -right-10 top-10 w-72 h-auto pointer-events-none"
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6 py-20">
         <FadeIn>
           <SectionHeading
             eyebrow="Über uns"
@@ -56,7 +67,7 @@ export function About() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {founders.map((founder, i) => (
             <FadeIn key={founder.name} delay={i * 100}>
-              <div className="rounded-2xl bg-offwhite shadow-card p-8 h-full">
+              <div className="group rounded-2xl bg-offwhite shadow-card p-8 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
                 <div className="flex items-center gap-4">
                   <AvatarPlaceholder name={founder.name} />
                   <div>

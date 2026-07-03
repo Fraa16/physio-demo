@@ -1,18 +1,28 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { navItems } from "../../data/nav";
 import { MobileNav } from "./MobileNav";
+import { useScrollSpy } from "../../hooks/useScrollSpy";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const activeId = useScrollSpy(navItems.map((item) => item.hash));
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isHome = location.pathname === "/";
 
   return (
     <header
@@ -26,15 +36,25 @@ export function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.hash}
-              to={`/#${item.hash}`}
-              className="text-sm font-medium text-anthracite hover:text-petrol transition"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = isHome && activeId === item.hash;
+            return (
+              <Link
+                key={item.hash}
+                to={`/#${item.hash}`}
+                className={`relative text-sm font-medium py-1 transition ${
+                  isActive ? "text-petrol" : "text-anthracite hover:text-petrol"
+                }`}
+              >
+                {item.label}
+                <span
+                  className={`absolute -bottom-0.5 left-0 h-0.5 bg-lime transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden md:block">
@@ -64,6 +84,13 @@ export function Header() {
       </div>
 
       <MobileNav open={open} onClose={() => setOpen(false)} />
+
+      <div className="h-0.5 bg-petrol/5">
+        <div
+          className="h-full bg-lime transition-[width] duration-150"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
     </header>
   );
 }
