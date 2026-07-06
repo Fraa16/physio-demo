@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import { FadeIn } from "../common/FadeIn";
 import { Icon } from "../icons/Icon";
+import { Photo } from "../common/Photo";
 import { serviceCategories } from "../../data/services";
+import { photos, type EditorialImage } from "../../data/images";
 
-/** Three category panels with a full color-invert on hover. */
+const categoryImage: Record<string, EditorialImage> = {
+  sport: photos.athleticSwing,
+  praevention: photos.mobilityOverhead,
+  technologie: photos.resistanceBand,
+};
+
+/** Three category panels: photo on top, invert-on-hover body. */
 export function CategoriesTeaser() {
   return (
     <section className="border-t border-petrol/10 bg-offwhite">
@@ -35,25 +43,28 @@ export function CategoriesTeaser() {
             <FadeIn key={category.id} delay={i * 100}>
               <Link
                 to={`/leistungen/${category.id}`}
-                className="group relative flex h-full min-h-[340px] flex-col justify-between overflow-hidden rounded-3xl border border-petrol/10 bg-white p-8 transition-all duration-500 hover:border-petrol hover:bg-petrol"
+                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-petrol/10 bg-white transition-all duration-500 hover:border-petrol hover:shadow-card-hover"
               >
-                <div className="flex items-start justify-between">
-                  <span className="font-heading text-sm font-semibold text-petrol/40 transition-colors duration-500 group-hover:text-lime/70">
+                <div className="relative overflow-hidden">
+                  <Photo
+                    image={categoryImage[category.id]}
+                    ratio="aspect-[16/11]"
+                    rounded="rounded-none"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-petrol/85 px-3 py-1 font-heading text-xs font-semibold text-lime backdrop-blur-sm">
                     0{i + 1}
                   </span>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-petrol text-lime transition-all duration-500 group-hover:bg-lime group-hover:text-petrol">
-                    <Icon name={category.icon} size={22} />
+                  <div className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-lime text-petrol">
+                    <Icon name={category.icon} size={20} />
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="text-display-xs font-bold text-petrol transition-colors duration-500 group-hover:text-offwhite">
-                    {category.title}
-                  </h3>
-                  <p className="mt-3 text-anthracite/70 transition-colors duration-500 group-hover:text-offwhite/70">
-                    {category.intro}
-                  </p>
-                  <span className="mt-6 inline-flex items-center gap-2 font-heading text-sm font-semibold text-petrol transition-colors duration-500 group-hover:text-lime">
+                <div className="flex flex-1 flex-col p-7">
+                  <h3 className="text-display-xs font-bold text-petrol">{category.title}</h3>
+                  <p className="mt-3 flex-1 text-anthracite/70">{category.intro}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 font-heading text-sm font-semibold text-petrol">
                     {category.services.length} Leistungen entdecken
                     <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                   </span>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FadeIn } from "../common/FadeIn";
 import { Icon } from "../icons/Icon";
 import { CornerMarks } from "../art/CornerMarks";
+import { photos } from "../../data/images";
 
 const testimonials = [
   {
@@ -42,6 +43,22 @@ export function Testimonials() {
     <section className="bg-offwhite px-6 py-24 md:py-28">
       <FadeIn>
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-4xl bg-petrol px-8 py-16 md:px-20 md:py-24">
+          {/* Duotone photo backdrop */}
+          <img
+            src={photos.trainingCore.lg}
+            srcSet={`${photos.trainingCore.sm} 800w, ${photos.trainingCore.lg} 1600w`}
+            sizes="100vw"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25 grayscale"
+          />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ background: "linear-gradient(120deg, rgba(11,61,66,0.94), rgba(7,42,46,0.82))" }}
+            aria-hidden="true"
+          />
           <div className="pointer-events-none absolute inset-0 bg-grid-dark" aria-hidden="true" />
           <CornerMarks className="hidden md:block" />
 

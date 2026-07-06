@@ -3,8 +3,16 @@ import { usePageMeta } from "../hooks/usePageMeta";
 import { PageHero } from "../components/common/PageHero";
 import { FadeIn } from "../components/common/FadeIn";
 import { CTABand } from "../components/common/CTABand";
+import { Photo } from "../components/common/Photo";
 import { Icon } from "../components/icons/Icon";
 import { serviceCategories } from "../data/services";
+import { photos, type EditorialImage } from "../data/images";
+
+const categoryHero: Record<string, EditorialImage> = {
+  sport: photos.kneeTreatment,
+  praevention: photos.osteoNeck,
+  technologie: photos.wristAssessment,
+};
 
 export function LeistungCategory() {
   const { categoryId } = useParams();
@@ -42,7 +50,28 @@ export function LeistungCategory() {
         </div>
       </PageHero>
 
-      <section className="border-t border-petrol/10 bg-white">
+      {/* Full-bleed category hero image */}
+      <section className="bg-offwhite px-6">
+        <FadeIn>
+          <div className="relative mx-auto -mt-2 max-w-7xl">
+            <Photo
+              image={categoryHero[category.id]}
+              ratio="aspect-[16/7]"
+              priority
+              sizes="(max-width: 1280px) 100vw, 1200px"
+              rounded="rounded-[2rem]"
+            />
+            <div className="absolute bottom-5 left-5 flex items-center gap-2.5 rounded-full bg-petrol/85 px-4 py-2 backdrop-blur-sm">
+              <span className="hud-dot h-2 w-2 rounded-full bg-lime" />
+              <span className="font-heading text-[11px] font-semibold uppercase tracking-[0.16em] text-lime">
+                {category.services.length} Leistungen
+              </span>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {category.services.map((service, i) => (

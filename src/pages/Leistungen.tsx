@@ -4,8 +4,16 @@ import { PageHero } from "../components/common/PageHero";
 import { FadeIn } from "../components/common/FadeIn";
 import { ArrowLink } from "../components/common/ArrowLink";
 import { CTABand } from "../components/common/CTABand";
+import { Photo } from "../components/common/Photo";
 import { Icon } from "../components/icons/Icon";
 import { serviceCategories } from "../data/services";
+import { photos, type EditorialImage } from "../data/images";
+
+const sectionImage: Record<string, EditorialImage> = {
+  sport: photos.therapyNeck,
+  praevention: photos.therapyShoulder,
+  technologie: photos.postureBack,
+};
 
 /** Editorial numbered index of every service, grouped by category. */
 export function Leistungen() {
@@ -67,6 +75,15 @@ export function Leistungen() {
                       <ArrowLink to={`/leistungen/${category.id}`}>
                         Zur Detailseite
                       </ArrowLink>
+                    </div>
+                  </FadeIn>
+                  <FadeIn delay={120}>
+                    <div className="mt-10">
+                      <Photo
+                        image={sectionImage[category.id]}
+                        ratio="aspect-[4/3]"
+                        sizes="(max-width: 1024px) 100vw, 38vw"
+                      />
                     </div>
                   </FadeIn>
                 </div>

@@ -4,9 +4,10 @@ import { FadeIn } from "../components/common/FadeIn";
 import { ArrowLink } from "../components/common/ArrowLink";
 import { CTABand } from "../components/common/CTABand";
 import { Portrait } from "../components/common/Portrait";
+import { Photo } from "../components/common/Photo";
 import { Icon } from "../components/icons/Icon";
-import { MotionFigure } from "../components/art/MotionFigure";
 import { founderBios } from "../data/team";
+import { photos } from "../data/images";
 
 const values = [
   {
@@ -49,9 +50,20 @@ export function UeberUns() {
       <section className="border-t border-petrol/10 bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-20 md:py-28 lg:grid-cols-[0.3fr_0.7fr]">
           <div>
-            <FadeIn>
-              <p className="micro-label sticky top-28 text-petrol/70">Die Geschichte</p>
-            </FadeIn>
+            <div className="lg:sticky lg:top-28">
+              <FadeIn>
+                <p className="micro-label text-petrol/70">Die Geschichte</p>
+              </FadeIn>
+              <FadeIn delay={120}>
+                <div className="mt-8">
+                  <Photo
+                    image={photos.handsCare}
+                    ratio="aspect-[4/5]"
+                    sizes="(max-width: 1024px) 100vw, 30vw"
+                  />
+                </div>
+              </FadeIn>
+            </div>
           </div>
           <div className="max-w-2xl space-y-8 text-lg leading-relaxed text-anthracite/80 md:text-xl">
             <FadeIn>
@@ -155,42 +167,73 @@ export function UeberUns() {
       {/* Location */}
       <section className="relative overflow-hidden border-t border-petrol/10 bg-petrol text-offwhite">
         <div className="pointer-events-none absolute inset-0 bg-grid-dark" aria-hidden="true" />
-        <MotionFigure
-          pose="yoga"
-          animated={false}
-          lineColor="rgba(247,248,246,0.08)"
-          jointColor="rgba(198,255,61,0.25)"
-          className="pointer-events-none absolute -right-8 bottom-0 hidden w-80 lg:block"
-        />
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-24">
-          <FadeIn>
-            <p className="micro-label text-lime">Standort</p>
-            <h2 className="mt-5 max-w-2xl text-display-sm font-bold text-offwhite">
-              Mitten im Werksviertel
-            </h2>
-            <p className="mt-6 max-w-xl leading-relaxed text-offwhite/70">
-              Unser Lab liegt im kreativen Werksviertel-Mitte – zwischen
-              Ateliers, Start-ups und Konzerthallen. Drei Gehminuten vom
-              Ostbahnhof, mit eigenen Fahrradstellplätzen und Tiefgarage im
-              Gebäude.
-            </p>
-          </FadeIn>
-          <FadeIn delay={150}>
-            <div className="mt-10 flex flex-wrap gap-x-12 gap-y-6 text-sm text-offwhite/60">
-              <div className="flex items-center gap-3">
-                <Icon name="mapPin" size={18} className="text-lime" />
-                Atelierstraße 10, 81671 München
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 md:py-24 lg:grid-cols-2">
+          <div>
+            <FadeIn>
+              <p className="micro-label text-lime">Standort</p>
+              <h2 className="mt-5 max-w-2xl text-display-sm font-bold text-offwhite">
+                Mitten im Werksviertel
+              </h2>
+              <p className="mt-6 max-w-xl leading-relaxed text-offwhite/70">
+                Unser Lab liegt im kreativen Werksviertel-Mitte – zwischen
+                Ateliers, Start-ups und Konzerthallen. Drei Gehminuten vom
+                Ostbahnhof, mit eigenen Fahrradstellplätzen und Tiefgarage im
+                Gebäude.
+              </p>
+            </FadeIn>
+            <FadeIn delay={150}>
+              <div className="mt-10 flex flex-col gap-4 text-sm text-offwhite/60">
+                <div className="flex items-center gap-3">
+                  <Icon name="mapPin" size={18} className="text-lime" />
+                  Atelierstraße 10, 81671 München
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="route" size={18} className="text-lime" />
+                  S-Bahn S1–S8 · Ostbahnhof
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="clock" size={18} className="text-lime" />
+                  Mo–Fr 07–20 Uhr · Sa 09–14 Uhr
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Icon name="route" size={18} className="text-lime" />
-                S-Bahn S1–S8 · Ostbahnhof
-              </div>
-              <div className="flex items-center gap-3">
-                <Icon name="clock" size={18} className="text-lime" />
-                Mo–Fr 07–20 Uhr · Sa 09–14 Uhr
-              </div>
+            </FadeIn>
+          </div>
+          <FadeIn delay={120}>
+            <div className="relative">
+              <Photo
+                image={photos.clinicRoom}
+                ratio="aspect-[4/3]"
+                sizes="(max-width: 1024px) 100vw, 48vw"
+                rounded="rounded-[2rem]"
+              />
+              <span className="absolute left-4 top-4 h-6 w-6 border-l-2 border-t-2 border-lime/70" aria-hidden="true" />
+              <span className="absolute bottom-4 right-4 h-6 w-6 border-b-2 border-r-2 border-lime/70" aria-hidden="true" />
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* Einblicke gallery */}
+      <section className="border-t border-petrol/10 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <FadeIn>
+            <p className="micro-label text-petrol/70">Einblicke</p>
+            <h2 className="mt-5 max-w-2xl text-display-sm font-bold text-petrol">
+              Ein Tag im Lab
+            </h2>
+          </FadeIn>
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {[photos.therapyFoot, photos.mobilityHamstring, photos.therapyKnee].map((img, i) => (
+              <FadeIn key={img.lg} delay={i * 100}>
+                <Photo
+                  image={img}
+                  ratio="aspect-[4/5]"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className={i === 1 ? "sm:mt-12" : ""}
+                />
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 

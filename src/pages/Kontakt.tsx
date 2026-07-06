@@ -3,8 +3,10 @@ import { usePageMeta } from "../hooks/usePageMeta";
 import { PageHero } from "../components/common/PageHero";
 import { FadeIn } from "../components/common/FadeIn";
 import { FAQ } from "../components/sections/FAQ";
+import { Photo } from "../components/common/Photo";
 import { Icon } from "../components/icons/Icon";
 import { serviceCategories } from "../data/services";
+import { photos } from "../data/images";
 
 const openingHours = [
   { label: "Montag–Freitag", hours: "07:00–20:00 Uhr" },
@@ -57,6 +59,13 @@ export function Kontakt() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-20 md:py-24 lg:grid-cols-[0.4fr_0.6fr]">
           {/* Info column */}
           <div className="space-y-10">
+            <FadeIn>
+              <Photo
+                image={photos.shoulderClose}
+                ratio="aspect-[3/2]"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </FadeIn>
             <FadeIn>
               <div className="flex gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-petrol text-lime">
