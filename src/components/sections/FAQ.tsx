@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FadeIn } from "../common/FadeIn";
-import { SectionHeading } from "../common/SectionHeading";
 import { Icon } from "../icons/Icon";
 
 const faqs = [
@@ -35,30 +34,54 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-white">
-      <div className="max-w-3xl mx-auto px-6 py-20">
-        <FadeIn>
-          <SectionHeading eyebrow="Fragen & Antworten" title="Gut zu wissen" />
-        </FadeIn>
+    <section className="border-t border-petrol/10 bg-offwhite">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-20 md:py-24 lg:grid-cols-[0.35fr_0.65fr]">
+        <div>
+          <FadeIn>
+            <div className="lg:sticky lg:top-28">
+              <p className="micro-label text-petrol/70">FAQ</p>
+              <h2 className="mt-5 text-display-sm font-bold text-petrol">Gut zu wissen</h2>
+              <p className="mt-5 max-w-sm text-anthracite/65">
+                Deine Frage ist nicht dabei? Ruf uns an oder schreib uns –
+                wir antworten meist innerhalb eines Werktags.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
 
-        <div className="mt-12 space-y-3">
+        <div>
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (
-              <FadeIn key={faq.question} delay={i * 60}>
-                <div className="rounded-2xl bg-offwhite shadow-card overflow-hidden">
+              <FadeIn key={faq.question} delay={i * 50}>
+                <div className={`border-b border-petrol/10 ${i === 0 ? "border-t" : ""}`}>
                   <button
                     type="button"
                     onClick={() => setOpen(isOpen ? null : i)}
                     aria-expanded={isOpen}
-                    className="w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-heading font-semibold"
+                    className="group flex w-full items-center justify-between gap-6 py-6 text-left"
                   >
-                    {faq.question}
-                    <Icon
-                      name={isOpen ? "chevronUp" : "chevronDown"}
-                      size={20}
-                      className="shrink-0 text-petrol"
-                    />
+                    <span className="flex items-baseline gap-5">
+                      <span
+                        className={`font-heading text-sm font-semibold tabular-nums transition-colors ${
+                          isOpen ? "text-lime" : "text-petrol/30"
+                        }`}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-heading text-lg font-bold text-petrol md:text-xl">
+                        {faq.question}
+                      </span>
+                    </span>
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                        isOpen
+                          ? "rotate-180 border-petrol bg-petrol text-lime"
+                          : "border-petrol/20 text-petrol group-hover:border-petrol"
+                      }`}
+                    >
+                      <Icon name="chevronDown" size={17} />
+                    </span>
                   </button>
                   <div
                     className={`grid transition-all duration-300 ease-out ${
@@ -66,7 +89,9 @@ export function FAQ() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="px-6 pb-5 text-anthracite/75">{faq.answer}</p>
+                      <p className="max-w-2xl pb-7 pl-10 leading-relaxed text-anthracite/70 md:pl-12">
+                        {faq.answer}
+                      </p>
                     </div>
                   </div>
                 </div>

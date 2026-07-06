@@ -1,5 +1,4 @@
 import { FadeIn } from "../common/FadeIn";
-import { SectionHeading } from "../common/SectionHeading";
 import { Icon } from "../icons/Icon";
 
 const steps = [
@@ -11,7 +10,7 @@ const steps = [
   },
   {
     icon: "layers" as const,
-    title: "Individueller Behandlungsplan",
+    title: "Individueller Plan",
     description:
       "Aus Daten und Befund entsteht ein Plan, der Therapie, Training und Regeneration zusammen denkt.",
   },
@@ -31,37 +30,37 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="bg-white">
-      <div className="max-w-6xl mx-auto px-6 py-20">
+    <section className="border-t border-petrol/10 bg-offwhite">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <FadeIn>
-          <SectionHeading
-            eyebrow="Ablauf"
-            title="So läuft deine erste Behandlung ab"
-            subtitle="Vom ersten Gespräch bis zum Trainingsplan für zuhause – ein klarer Prozess statt Rätselraten."
-          />
+          <p className="micro-label text-petrol/70">Ablauf</p>
+          <h2 className="mt-5 max-w-2xl text-display-sm font-bold text-petrol">
+            So läuft deine erste Behandlung ab
+          </h2>
         </FadeIn>
 
-        <div className="mt-16 relative">
-          <div
-            className="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] h-px bg-petrol/15"
-            aria-hidden="true"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
-            {steps.map((step, i) => (
-              <FadeIn key={step.title} delay={i * 100}>
-                <div className="relative text-center md:text-left">
-                  <div className="relative z-10 w-14 h-14 mx-auto md:mx-0 rounded-full bg-petrol text-lime flex items-center justify-center shadow-card">
-                    <Icon name={step.icon} size={22} />
-                  </div>
-                  <p className="mt-5 text-xs font-semibold tracking-wide text-lime bg-petrol inline-block rounded-full px-2.5 py-0.5">
-                    Schritt {i + 1}
-                  </p>
-                  <h3 className="mt-3 font-heading font-bold text-lg">{step.title}</h3>
-                  <p className="mt-2 text-sm text-anthracite/70">{step.description}</p>
+        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-petrol/10 bg-petrol/10 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, i) => (
+            <FadeIn key={step.title} delay={i * 90} className="h-full">
+              <div className="group relative flex h-full flex-col bg-white p-8 transition-colors duration-300 hover:bg-offwhite">
+                <span
+                  className="pointer-events-none absolute -right-2 -top-6 font-heading text-[7rem] font-bold leading-none text-petrol/[0.05] transition-colors duration-300 group-hover:text-lime/25"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-petrol text-lime">
+                  <Icon name={step.icon} size={20} />
                 </div>
-              </FadeIn>
-            ))}
-          </div>
+                <h3 className="relative mt-14 font-heading text-lg font-bold text-petrol">
+                  {step.title}
+                </h3>
+                <p className="relative mt-3 text-sm leading-relaxed text-anthracite/70">
+                  {step.description}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>

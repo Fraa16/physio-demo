@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  @apply bg-offwhite text-anthracite font-body;
+  @apply bg-offwhite text-anthracite font-body antialiased;
   margin: 0;
 }
 
@@ -21,6 +21,78 @@ h2,
 h3,
 h4 {
   @apply font-heading text-petrol;
+}
+
+@layer components {
+  /* Editorial underline-only form fields */
+  .input-line {
+    @apply w-full bg-transparent border-0 border-b border-petrol/25 rounded-none px-0 py-3 text-anthracite placeholder:text-anthracite/35 focus:outline-none focus:ring-0 focus:border-petrol transition-colors;
+  }
+
+  /* Uppercase micro label used across all sections */
+  .micro-label {
+    @apply inline-flex items-center gap-2.5 text-[11px] font-heading font-semibold uppercase tracking-[0.22em];
+  }
+  .micro-label::before {
+    content: "";
+    @apply block w-6 h-px bg-lime;
+  }
+}
+
+@layer utilities {
+  .bg-grid-dark {
+    background-image: linear-gradient(rgba(247, 248, 246, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(247, 248, 246, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .bg-grid-light {
+    background-image: linear-gradient(rgba(11, 61, 66, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 61, 66, 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  /* Ruler tick strip, used on section edges */
+  .ruler-ticks {
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(198, 255, 61, 0.45) 0,
+      rgba(198, 255, 61, 0.45) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes overlayLink {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes motion-figure-float {
@@ -45,6 +117,16 @@ h4 {
   }
 }
 
+@keyframes hud-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
 .motion-figure-float {
   animation: motion-figure-float 5s ease-in-out infinite;
 }
@@ -55,15 +137,16 @@ h4 {
   transform-box: fill-box;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hud-dot {
+  animation: hud-blink 2.2s ease-in-out infinite;
+}
+
+.page-enter {
+  animation: pageIn 0.45s ease-out both;
+}
+
+.overlay-link {
+  animation: overlayLink 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes marquee {
@@ -76,13 +159,16 @@ h4 {
 }
 
 .animate-marquee {
-  animation: marquee 26s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .motion-figure-float,
   .motion-figure-joint,
-  .animate-marquee {
+  .animate-marquee,
+  .hud-dot,
+  .page-enter,
+  .overlay-link {
     animation: none !important;
   }
 }

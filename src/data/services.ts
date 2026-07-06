@@ -10,7 +10,9 @@ export interface Service {
 export interface ServiceCategory {
   id: string;
   title: string;
+  shortTitle: string;
   intro: string;
+  longIntro: string;
   icon: IconName;
   services: Service[];
 }
@@ -19,8 +21,11 @@ export const serviceCategories: ServiceCategory[] = [
   {
     id: "sport",
     title: "Sportphysiotherapie & Leistungssport",
+    shortTitle: "Sport & Reha",
     intro:
       "Verletzungsreha, Return-to-Sport und Trainingstherapie nach den Standards des Profisports.",
+    longIntro:
+      "Vom akuten Behandlungsbedarf bis zum Wiedereinstieg ins Wettkampftraining: Hier arbeiten wir mit den Methoden, die im Profisport Standard sind – angepasst an dein Level und dein Ziel. Jede Behandlung beginnt mit einem Befund, jede Trainingsempfehlung mit einer Messung.",
     icon: "activity",
     services: [
       {
@@ -84,8 +89,11 @@ export const serviceCategories: ServiceCategory[] = [
   {
     id: "praevention",
     title: "Prävention & Wellness",
+    shortTitle: "Prävention & Wellness",
     intro:
       "Yoga, Massage, Osteopathie und Faszientherapie für mehr Beweglichkeit im Alltag.",
+    longIntro:
+      "Beschwerden vorbeugen, bevor sie entstehen – mit Bewegung, manueller Therapie und Techniken, die Körper und Nervensystem gemeinsam ansprechen. Für alle, die im Alltag beweglich bleiben wollen, ganz ohne Wettkampfambitionen.",
     icon: "wind",
     services: [
       {
@@ -135,8 +143,11 @@ export const serviceCategories: ServiceCategory[] = [
   {
     id: "technologie",
     title: "Technologie & Digital-Angebote",
+    shortTitle: "Technologie & Digital",
     intro:
       "3D-Bewegungsanalyse, Wearables und digitale Trainingsbegleitung für messbare Fortschritte.",
+    longIntro:
+      "Messbar statt gefühlt: Unsere digitalen Angebote machen deinen Fortschritt sichtbar und begleiten dich über die Behandlung hinaus – vom individuellen Trainingsplan in der App bis zur Wearable-Auswertung im Termin.",
     icon: "smartphone",
     services: [
       {
