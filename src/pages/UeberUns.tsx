@@ -185,7 +185,7 @@ export function UeberUns() {
               <div className="mt-10 flex flex-col gap-4 text-sm text-offwhite/60">
                 <div className="flex items-center gap-3">
                   <Icon name="mapPin" size={18} className="text-lime" />
-                  Atelierstraße 10, 81671 München
+                  Lichtwerkstraße 12, 81671 München
                 </div>
                 <div className="flex items-center gap-3">
                   <Icon name="route" size={18} className="text-lime" />

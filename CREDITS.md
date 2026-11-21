@@ -1,7 +1,8 @@
 # Bildnachweise / Photo Credits
 
-Die Team-Porträts (Matteo Brandt, Sophia Lindner, Julia Ahrens, Tom Winkler,
-Elena Rossi) sind dem Projekt zugelieferte Aufnahmen.
+Die Team-Porträts sind Stockfotos von Pexels (u. a. Karolina Grabowska / Kaboompics,
+funkcinės terapijos centras, FaustFoto). Die Namen des Teams (Matteo Brandt, Sophia Lindner,
+Julia Ahrens, Tom Winkler, Elena Rossi) sind frei erfunden – MOTIO Health Lab ist ein fiktives Demo-Projekt.
 
 Die übrigen Aufnahmen stammen aus frei nutzbaren Bildquellen:
 

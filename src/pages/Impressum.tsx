@@ -17,7 +17,7 @@ export function Impressum() {
             <p className="mt-3 leading-relaxed text-anthracite/80">
               MOTIO Health Lab GmbH
               <br />
-              Atelierstraße 10
+              Lichtwerkstraße 12
               <br />
               81671 München
             </p>
@@ -33,7 +33,7 @@ export function Impressum() {
           <div>
             <h2 className="font-heading text-lg font-bold text-petrol">Kontakt</h2>
             <p className="mt-3 leading-relaxed text-anthracite/80">
-              Telefon: 089 / 41 09 87 30
+              Telefon: 089 / 99998 730
               <br />
               E-Mail: hallo@motio-healthlab.de
             </p>

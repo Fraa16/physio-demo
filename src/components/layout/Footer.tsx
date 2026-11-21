@@ -50,11 +50,11 @@ export function Footer() {
         <div className="md:col-span-3">
           <p className="micro-label text-lime">Kontakt</p>
           <ul className="mt-5 space-y-2.5 text-sm text-offwhite/70">
-            <li>Atelierstraße 10</li>
+            <li>Lichtwerkstraße 12</li>
             <li>81671 München · Werksviertel-Mitte</li>
             <li>
-              <a href="tel:+498941098730" className="transition hover:text-lime">
-                089 / 41 09 87 30
+              <a href="tel:+498999998730" className="transition hover:text-lime">
+                089 / 99998 730
               </a>
             </li>
             <li>

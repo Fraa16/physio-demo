@@ -75,10 +75,10 @@ export function Header() {
 
           <div className="hidden items-center gap-6 md:flex">
             <a
-              href="tel:+498941098730"
+              href="tel:+498999998730"
               className="hidden text-sm font-medium text-anthracite/60 transition hover:text-petrol xl:inline"
             >
-              089 / 41 09 87 30
+              089 / 99998 730
             </a>
             <Link
               to="/kontakt"
@@ -143,10 +143,10 @@ export function Header() {
             className="overlay-link relative px-8 pb-10 text-sm text-offwhite/50"
             style={{ animationDelay: "500ms" }}
           >
-            Atelierstraße 10 · 81671 München
+            Lichtwerkstraße 12 · 81671 München
             <br />
-            <a href="tel:+498941098730" className="hover:text-lime">
-              089 / 41 09 87 30
+            <a href="tel:+498999998730" className="hover:text-lime">
+              089 / 99998 730
             </a>
           </div>
         </div>

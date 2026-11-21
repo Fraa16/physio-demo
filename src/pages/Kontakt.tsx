@@ -18,7 +18,7 @@ const openingHours = [
 export function Kontakt() {
   usePageMeta(
     "Kontakt & Terminbuchung | MOTIO Health Lab München",
-    "Termin buchen bei MOTIO Health Lab: Atelierstraße 10, 81671 München. Telefon 089 / 41 09 87 30 – drei Gehminuten vom Ostbahnhof.",
+    "Termin buchen bei MOTIO Health Lab: Lichtwerkstraße 12, 81671 München. Telefon 089 / 99998 730 – drei Gehminuten vom Ostbahnhof.",
   );
 
   const [submitted, setSubmitted] = useState(false);
@@ -78,7 +78,7 @@ export function Kontakt() {
                   <p className="mt-2 leading-relaxed text-anthracite/80">
                     MOTIO Health Lab GmbH
                     <br />
-                    Atelierstraße 10
+                    Lichtwerkstraße 12
                     <br />
                     81671 München (Werksviertel-Mitte)
                   </p>
@@ -96,8 +96,8 @@ export function Kontakt() {
                     Direkt erreichen
                   </h2>
                   <p className="mt-2 leading-relaxed text-anthracite/80">
-                    <a href="tel:+498941098730" className="transition hover:text-petrol">
-                      089 / 41 09 87 30
+                    <a href="tel:+498999998730" className="transition hover:text-petrol">
+                      089 / 99998 730
                     </a>
                     <br />
                     <a
@@ -153,7 +153,7 @@ export function Kontakt() {
               <div className="overflow-hidden rounded-3xl border border-petrol/10">
                 <iframe
                   title="MOTIO Health Lab auf der Karte"
-                  src="https://www.google.com/maps?q=Atelierstra%C3%9Fe+10%2C+81671+M%C3%BCnchen&output=embed"
+                  src="https://www.google.com/maps?q=Werksviertel-Mitte%2C+M%C3%BCnchen&output=embed"
                   width="100%"
                   height="260"
                   style={{ border: 0 }}

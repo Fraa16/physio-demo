@@ -15,7 +15,7 @@ export function Datenschutz() {
             <p className="mt-3 leading-relaxed text-anthracite/80">
               Verantwortlicher im Sinne der Datenschutzgrundverordnung (DSGVO) ist:
               <br />
-              MOTIO Health Lab GmbH, Atelierstraße 10, 81671 München
+              MOTIO Health Lab GmbH, Lichtwerkstraße 12, 81671 München
               <br />
               E-Mail: hallo@motio-healthlab.de
             </p>

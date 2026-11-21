@@ -33,10 +33,10 @@ export function CTABand() {
                 Termin buchen
               </Link>
               <a
-                href="tel:+498941098730"
+                href="tel:+498999998730"
                 className="rounded-full border border-offwhite/30 px-8 py-4 font-heading font-semibold text-offwhite transition-all duration-200 hover:border-lime hover:text-lime"
               >
-                089 / 41 09 87 30
+                089 / 99998 730
               </a>
             </div>
           </div>
